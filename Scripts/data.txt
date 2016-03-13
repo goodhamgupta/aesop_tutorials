@@ -1,0 +1,25 @@
+Client Consumer seed:-
+
+--> This seeding is done to recover previous events that are stored in the relay but have not been consumed correctly
+--> The scn number for these events are stored in the zookeeper node 'fk_kafka_cluster'
+
+--> Run the zookeeper service.
+--> Run the zookeeper cli using the command :- sudo sh /usr/share/zookeeper/bin/zkCli.sh
+
+--> Command 'ls /' will list all the znodes present.
+--> Using the command 'get /fk_kafka_cluster/PROPERTYSTORE/0_Person' the data stored in the znode can be seen.
+--> Generate the SCN number to be seeded using:- (binlog_number << 32) | offset(or binlog_filesize)
+--> Update the fields prevSCN and windowSCN to the above generated number in the JSON format :-
+
+	{"id":"0","simpleFields":{"c":"{\"tsNsecs\":1456211574000000000,\"prevScn\":184683593835,\"snapshot_offset\":-1,\"consumption_mode\":\"ONLINE_CONSUMPTION\",\"windowOffset\":-1,\"windowScn\":184683593835}","s":"com.flipkart.aesop.events.ortest.Person"},"listFields":{},"mapFields":{}}
+
+	(ENSURE THAT THERE ARE NO SPACES PRESENT IN THE ABOVE JSON DATA
+
+--> Set the data for the 0_Person and 1_Person node using the command :-
+		set /fk_kafka_cluster/PROPERTYSTORE/0_Person json_data_here
+		set /fk_kafka_cluster/PROPERTYSTORE/1_Person json_data_here
+
+--> Exit zookeeper. Go into the samples/sample-kafka-cluster-client-consumer/distribution/scripts
+--> Run the bash.sh
+--> The previous events will be seen the in the console.
+

@@ -1,0 +1,1 @@
+{"id":"0","simpleFields":{"c":"{\"tsNsecs\":1456211574000000000,\"prevScn\":184683593835,\"snapshot_offset\":-1,\"consumption_mode\":\"ONLINE_CONSUMPTION\",\"windowOffset\":-1,\"windowScn\":184683593835}","s":"com.flipkart.aesop.events.ortest.Person"},"listFields":{},"mapFields":{}}

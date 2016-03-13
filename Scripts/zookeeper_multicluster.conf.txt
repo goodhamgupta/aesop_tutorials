@@ -1,0 +1,13 @@
+tickTime=2000
+dataDir=/home/lp-153/zopper/zoo_server/zookeeperdata
+clientPort=2181
+fconfig
+initLimit=5
+fconfig
+syncLimit=2
+server.1:192.168.33.1:2888:3888
+server.2=192.168.33.10:2889:3889
+server.3=192.168.33.20:2890:3890
+server.4=192.168.33.30:2891:3891
+server.5=192.168.33.40:2892:3892
+
